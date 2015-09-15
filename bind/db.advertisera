@@ -1,0 +1,12 @@
+$TTL    0   
+$ORIGIN advertisera.local.
+@   IN  SOA ns.advertisera.local. root.localhost. (
+            2015091112  ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800 )   ; Negative Cache TTL
+;
+@   IN  NS  ns.advertisera.local.
+@   IN  A   172.17.42.1
+ns  IN  A   172.17.42.1

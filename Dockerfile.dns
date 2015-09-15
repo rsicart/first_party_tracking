@@ -1,0 +1,31 @@
+FROM fike/bind9
+
+MAINTAINER R.Sicart "roger.sicart@gmail.com
+
+# Set locale
+ENV LANG en_US.UTF-8
+
+# Set timezone
+RUN echo "Europe/Paris" > /etc/timezone
+
+# Install packages
+RUN apt-get update --fix-missing --quiet=2 && \
+    apt-get install -y --quiet=2 \
+    vim
+
+# Setup bind
+ADD bind/db.publishera /etc/bind/
+ADD bind/db.publisherb /etc/bind/
+ADD bind/db.advertisera /etc/bind/
+ADD bind/db.advertiserb /etc/bind/
+ADD bind/db.tracker /etc/bind/
+ADD bind/db.docker /etc/bind/
+ADD bind/db.172 /etc/bind/
+ADD bind/zones.firstparty /etc/bind/
+
+# just to remember to run with options -p 53:53 -p 53:53/udp
+EXPOSE 53/tcp
+EXPOSE 53/udp
+
+ADD entrypoint-dns.sh /entrypoint-dns.sh
+CMD ["sh","-c","/entrypoint-dns.sh"]

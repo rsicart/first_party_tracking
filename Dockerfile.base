@@ -1,0 +1,17 @@
+FROM richarvey/nginx-php-fpm
+
+MAINTAINER R.Sicart "roger.sicart@gmail.com
+
+# Set locale
+ENV LANG en_US.UTF-8
+
+# Set timezone
+RUN echo "Europe/Paris" > /etc/timezone
+
+# Install packages
+RUN apt-get update --fix-missing --quiet=2 && \
+    apt-get install -y --quiet=2 \
+    vim
+
+ADD entrypoint.sh /root/
+CMD ["sh", "-c", "/root/entrypoint.sh"]

@@ -1,0 +1,34 @@
+zone "docker.local" in {
+    type master;
+    file "/etc/bind/db.docker";
+};
+
+zone "publishera.local" in {
+    type master;
+    file "/etc/bind/db.publishera";
+};
+
+zone "publisherb.local" in {
+    type master;
+    file "/etc/bind/db.publisherb";
+};
+
+zone "advertisera.local" in {
+    type master;
+    file "/etc/bind/db.advertisera";
+};
+
+zone "advertiserb.local" in {
+    type master;
+    file "/etc/bind/db.advertiserb";
+};
+
+zone "tracker.local" in {
+    type master;
+    file "/etc/bind/db.tracker";
+};
+
+zone "172.in-addr.arpa" in {
+    type master;
+    file "/etc/bind/db.172";
+};

@@ -1,0 +1,16 @@
+$TTL    0
+$ORIGIN 172.in-addr.arpa.
+@   IN  SOA ns.docker.local. root.localhost. (
+            2015091113  ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800 )   ; Negative Cache TTL
+;
+@   IN  NS  ns.docker.local.
+1.42.17 IN  PTR docker.local.
+1.42.17 IN  PTR publishera.local.
+1.42.17 IN  PTR publisherb.local.
+1.42.17 IN  PTR advertisera.local.
+1.42.17 IN  PTR advertiserb.local.
+1.42.17 IN  PTR tracker.local.
